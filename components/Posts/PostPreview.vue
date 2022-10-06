@@ -75,4 +75,9 @@ a:hover .post-content,
 a:active .post-content {
   background-color: #ccc;
 }
+@media (max-width: 768px) {
+  .post-preview {
+    margin-bottom: 20px;
+  }
+}
 </style>

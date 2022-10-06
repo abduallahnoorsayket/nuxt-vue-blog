@@ -1,9 +1,16 @@
 <template>
-  <div class="post-page"></div>
+  <div class="post-page">
+    <PostList />
+  </div>
 </template>
 
 <script>
-export default {};
+import PostList from "../../components/Posts/PostList.vue";
+export default {
+  components: {
+    PostList,
+  },
+};
 </script>
 
 <style scoped>
@@ -13,4 +20,3 @@ export default {};
   align-items: center;
 }
 </style>
-

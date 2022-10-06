@@ -3,35 +3,16 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBOq2dEad1g8w9syMcEjhOa8JXMn1TawG0gA&usqp=CAU"
-        title="Hello -there"
-        previewText="This is my first post !"
-      />
-      <PostPreview
-        id="2"
-        thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqCE5vikGzYMpFtT77iceT-IzbZsMxamQfT_1QUnDRBSXGcct-FsC7pIBwb2BNpaVGzw&usqp=CAU"
-        title="Hi how are you -there"
-        previewText="This is my Second post !"
-      />
-      <PostPreview
-        id="3"
-        thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJWPRKIhQt7Y4GbrvXw5A9LlmgTgktae03ag&usqp=CAU"
-        title="Hello world -there"
-        previewText="This is my Third post !"
-      />
-    </section>
+    <post-list />
   </div>
 </template>
 
 <script>
-import PostPreview from "@/components/Posts/PostPreview";
+import PostList from "../components/Posts/PostList.vue";
 export default {
   name: "IndexPage",
   components: {
-    PostPreview,
+    PostList,
   },
 };
 </script>
@@ -65,19 +46,5 @@ export default {
   .intro h1 {
     font-size: 2rem;
   }
-}
-@media (max-width: 768px) {
-  .post-preview {
-    margin-bottom: 20px;
-  }
-}
-
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>
