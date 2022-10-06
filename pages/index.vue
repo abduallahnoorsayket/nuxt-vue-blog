@@ -1,9 +1,83 @@
 <template>
-  <Tutorial/>
+  <div class="home-page">
+    <section class="intro">
+      <h1>Get the latest tech news!</h1>
+    </section>
+    <section class="featured-posts">
+      <PostPreview
+        id="1"
+        thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBOq2dEad1g8w9syMcEjhOa8JXMn1TawG0gA&usqp=CAU"
+        title="Hello -there"
+        previewText="This is my first post !"
+      />
+      <PostPreview
+        id="2"
+        thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqCE5vikGzYMpFtT77iceT-IzbZsMxamQfT_1QUnDRBSXGcct-FsC7pIBwb2BNpaVGzw&usqp=CAU"
+        title="Hi how are you -there"
+        previewText="This is my Second post !"
+      />
+      <PostPreview
+        id="3"
+        thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJWPRKIhQt7Y4GbrvXw5A9LlmgTgktae03ag&usqp=CAU"
+        title="Hello world -there"
+        previewText="This is my Third post !"
+      />
+    </section>
+  </div>
 </template>
 
 <script>
+import PostPreview from "@/components/Posts/PostPreview";
 export default {
-  name: 'IndexPage'
-}
+  name: "IndexPage",
+  components: {
+    PostPreview,
+  },
+};
 </script>
+<style scoped>
+.intro {
+  height: 300px;
+  position: relative;
+  padding: 30px;
+  box-sizing: border-box;
+  background-image: url("~assets/images/main-page-background.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.intro h1 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  font-size: 1.5rem;
+  color: black;
+  background-color: rgb(211, 211, 211);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px black;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .post-preview {
+    margin-bottom: 20px;
+  }
+}
+
+.featured-posts {
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+</style>
