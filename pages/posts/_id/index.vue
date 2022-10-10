@@ -20,7 +20,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  asyncData(context, callback) {
+    console.log(context);
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: {
+          id: "1",
+          title: "First Post",
+          previewText: "This is out first post",
+          author: "Abdullah sayket",
+          updatedDate: new Date(),
+          content : "It is a long established fact that a reader will be distracted by th",
+          thumbnail:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqCE5vikGzYMpFtT77iceT-IzbZsMxamQfT_1QUnDRBSXGcct-FsC7pIBwb2BNpaVGzw&usqp=CAU",
+        },
+      });
+    }, 1500);
+  },
+};
 </script>
 
 <style scoped>
