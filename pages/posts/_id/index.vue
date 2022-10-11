@@ -1,12 +1,14 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the Post</h1>
+      <h1 class="post-title">{{ loadedPosts.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Post updated by XXX</div>
-        <div class="post-detail">Written by Name</div>
+        <div class="post-detail">
+          Last updated on {{ loadedPosts.updatedDate }}
+        </div>
+        <div class="post-detail">Written by {{ loadedPosts.author }}</div>
       </div>
-      <p class="post-content">Content of the post</p>
+      <p class="post-content">{{ loadedPosts.content }}</p>
     </section>
     <section class="post-feedback">
       <p>
@@ -22,16 +24,17 @@
 <script>
 export default {
   asyncData(context, callback) {
-    console.log(context);
+    // console.log(context);
     setTimeout(() => {
       callback(null, {
         loadedPosts: {
           id: "1",
-          title: "First Post",
+          title: "First Post (ID:" + context.route.params.id + ")",
           previewText: "This is out first post",
           author: "Abdullah sayket",
           updatedDate: new Date(),
-          content : "It is a long established fact that a reader will be distracted by th",
+          content:
+            "It is a long established fact that a reader will be distracted by th",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqCE5vikGzYMpFtT77iceT-IzbZsMxamQfT_1QUnDRBSXGcct-FsC7pIBwb2BNpaVGzw&usqp=CAU",
         },
