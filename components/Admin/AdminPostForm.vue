@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     onSave() {
-      console.log("47", this.editedPost);
+      this.$emit("submit", this.editedPost);
     },
     onCancel() {
       this.$router.push("/admin");
