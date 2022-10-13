@@ -4,11 +4,14 @@
       >Author Name
     </app-control-input>
     <app-control-input v-model="editedPost.title"> Title</app-control-input>
-    <app-control-input v-model="editedPost.thumbnailLink">
+    <app-control-input v-model="editedPost.thumbnail">
       Thumbnail Link
     </app-control-input>
-    <app-control-input control-type="textarea" v-model="editedPost.content"
+    <app-control-input control-type="textarea" v-model="editedPost.content" 
       >Content
+    </app-control-input>
+    <app-control-input control-type="textarea" v-model="editedPost.previewText">
+      Preview Text
     </app-control-input>
 
     <app-button type="submit"> Save</app-button>
@@ -34,8 +37,9 @@ export default {
         : {
             author: "",
             title: "",
-            thumbnailLink: "",
+            thumbnail: "",
             content: "",
+            previewText: "",
           },
     };
   },
