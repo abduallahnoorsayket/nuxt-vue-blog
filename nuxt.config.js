@@ -1,14 +1,18 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "nuxt-blog",
+    title: "nuxt-vue-blog",
     htmlAttrs: {
       lang: "en",
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content: "This is my cool blog",
+      },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
@@ -34,10 +38,16 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
-
+  loading: { color: "#0000FF", height: "5px", duration: 5000 },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   // build: {},
   build: {
     standalone: true,
+  },
+  dev: true,
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      "https://nuxt-blog-5aaaf-default-rtdb.firebaseio.com",
   },
 };
