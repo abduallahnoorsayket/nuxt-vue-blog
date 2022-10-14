@@ -23,22 +23,16 @@ export default {
       )
       .then((res) => {
         return {
-          loadedPosts: res.data,
+          loadedPosts: { ...res.data, id: context.params.postId },
         };
       })
       .catch((e) => context.error(e));
   },
   methods: {
     onSubmitted(editedPost) {
-      axios
-        .put(
-          "https://nuxt-blog-5aaaf-default-rtdb.firebaseio.com/posts/" +
-            this.$route.params.postId +
-            ".json",
-          editedPost
-        )
-        .then((res) => console.log(res))
-        .catch((e) => console.log(e));
+      this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$router.push("/admin");
+      });
     },
   },
 };
