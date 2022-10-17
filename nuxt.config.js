@@ -25,10 +25,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["~assets/styles/main.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~plugins/core-component.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -48,6 +48,21 @@ export default {
   env: {
     baseUrl:
       process.env.BASE_URL ||
-      "https://nuxt-blog-5aaaf-default-rtdb.firebaseio.com",
+      "https://nuxt-blog-5aaaf-default-rtdb.firebaseio.com/",
+  },
+  transition: {
+    name: "fade",
+    mode: "out-in",
+  },
+  // srcDir: "client-app/",
+  router: {
+    // base: "/my-app/",
+    // extendRoutes(routes, resolve) {
+    //   routes.push({
+    //     path: "*",
+    //     component: resolve(__dirname, "pages/index.vue"),
+    //   });
+    // },
+    // linkActive: "active",
   },
 };
