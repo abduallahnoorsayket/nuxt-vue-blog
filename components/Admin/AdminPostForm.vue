@@ -7,7 +7,7 @@
     <app-control-input v-model="editedPost.thumbnail">
       Thumbnail Link
     </app-control-input>
-    <app-control-input control-type="textarea" v-model="editedPost.content" 
+    <app-control-input control-type="textarea" v-model="editedPost.content"
       >Content
     </app-control-input>
     <app-control-input control-type="textarea" v-model="editedPost.previewText">
@@ -26,10 +26,7 @@
 </template>
 
 <script>
-import AppButton from "../UI-Components/AppButton.vue";
-import AppControlInput from "../UI-Components/AppControlInput.vue";
 export default {
-  components: { AppControlInput, AppButton },
   data() {
     return {
       editedPost: this.post
