@@ -62,6 +62,7 @@ export default {
   },
   // srcDir: "client-app/",
   router: {
+    // middleware: "log",
     // base: "/my-app/",
     // extendRoutes(routes, resolve) {
     //   routes.push({

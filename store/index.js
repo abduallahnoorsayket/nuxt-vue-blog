@@ -38,7 +38,7 @@ const createStore = () => {
 
         return this.$axios
           .$post("/posts.json", createdPost)
-          .then((result) => {
+          .then((data) => {
             vuexContext.commit("addPost", {
               ...createdPost,
               id: data.name,
