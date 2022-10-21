@@ -37,25 +37,15 @@ export default {
   },
   methods: {
     onClick() {
-      let authUrl =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +process.env.fbAPIKey,;
-      if (!this.isLogin) {
-        authUrl =  "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" +process.env.fbAPIKey
-      } else {
-        this.$axios
-          .post(
-            authUrl,
-            {
-              email: this.email,
-              password: this.password,
-              returnSecureToken: true,
-            }
-          )
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((e) => console.log(e));
-      }
+      this.$store
+        .dispatch("authenticateUser", {
+          isLogin: this.isLogin,
+          email: this.email,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push("/admin");
+        });
     },
   },
 };
