@@ -22,6 +22,9 @@ const createStore = () => {
       setToken(state, token) {
         state.token = token;
       },
+      clearToken(state) {
+        state.token = null;
+      },
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
@@ -80,8 +83,27 @@ const createStore = () => {
           .then((result) => {
             console.log("81///", result.data.idToken);
             vuexContext.commit("setToken", result.data.idToken);
+            localStorage.setItem("token", result.idToken);
+            localStorage.setItem(
+              "tokenExpiration",
+              new Date().getTime() + result.expiresIn * 1000
+            );
+            vuexContext.dispatch("setLogoutTimer", result.expiresIn * 1000);
           })
           .catch((e) => console.log(e));
+      },
+      setLogoutTimer(vuexContext, duration) {
+        setTimeout(() => {
+          vuexContext.commit("clearToken", duration);
+        });
+      },
+      initAuth(vuexContext) {
+        const token = localStorage.getItem("token");
+        const expirationDate = localStorage.getItem("tokenExpiration");
+        if (new Date() > expirationDate || !token) {
+          return;
+        }
+        vuexContext.commit("setToken", token);
       },
     },
     getters: {
@@ -91,6 +113,9 @@ const createStore = () => {
       // Token(state) {
       //   return state.token;
       // },
+      isAuthenticated(state) {
+        return state.token != null;
+      },
     },
   });
 };
