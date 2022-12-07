@@ -96,10 +96,9 @@ const createStore = () => {
               new Date().getTime() +
                 Number.parseInt(result.data.expiresIn) * 1000
             );
-            // vuexContext.dispatch(
-            //   "setLogoutTimer",
-            //   result.data.expiresIn * 1000
-            // );
+            return this.$axios.$post("http://localhost:3000/api/track-data", {
+              data: "Authenticated !!",
+            });
           })
           .catch((e) => console.log(e));
       },
@@ -147,8 +146,10 @@ const createStore = () => {
         vuexContext.commit("clearToken");
         Cookie.remove("jwt");
         Cookie.remove("expirationDate");
-        localStorage.removeItem("token");
-        localStorage.removeItem("tokenExpiration");
+        if (process.client) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenExpiration");
+        }
       },
     },
     getters: {
